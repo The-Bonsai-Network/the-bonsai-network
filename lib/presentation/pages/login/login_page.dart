@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -15,13 +17,15 @@ class LoginPage extends StatelessWidget {
         slivers: <Widget>[
           SliverLayoutBuilder(
             builder: (BuildContext context, constraints) {
-              final scrollOffset = constraints.scrollOffset / 200.0;
+              double scrollOffset =
+                  (constraints.scrollOffset / 200.0).abs().clamp(0.0, 1.0);
               final isNotScrolled = constraints.scrollOffset < 20;
 
               return SliverAppBar(
-                expandedHeight: 100.0,
+                expandedHeight: 120.0,
                 stretch: true,
                 pinned: true,
+                floating: true,
                 leading: InkWell(
                   child: Row(
                     children: const [
@@ -39,16 +43,18 @@ class LoginPage extends StatelessWidget {
                   ),
                   onTap: () => context.router.popUntilRoot(),
                 ),
-                backgroundColor: Colors.white.withOpacity(scrollOffset),
+                backgroundColor: scrollOffset >= 0.0
+                    ? Colors.white.withOpacity(scrollOffset)
+                    : Colors.transparent,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(color: Colors.transparent),
-                  centerTitle: !isNotScrolled,
+                  centerTitle: scrollOffset >= 0.2,
                   titlePadding: const EdgeInsets.all(12.0),
                   title: const Text(
                     'Personal Information',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 20,
                     ),
                   ),
                   stretchModes: const [
@@ -62,7 +68,7 @@ class LoginPage extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             sliver: SliverFillRemaining(
-              hasScrollBody: false,
+              hasScrollBody: true,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
