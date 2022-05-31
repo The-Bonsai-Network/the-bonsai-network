@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
 
 enum ThemeColor {
-  primaryColor,
+  primaryGreen,
+  primaryBackground,
+  green1,
+  green2,
+  green3,
+  green4,
+  green5,
 }
 
 extension ThemeColorExtension on ThemeColor {
   Color get color {
     switch (this) {
-      case ThemeColor.primaryColor:
-        return const Color.fromRGBO(0, 100, 255, 1.0);
+      case ThemeColor.primaryGreen:
+        return const Color(0xFF284635);
+      case ThemeColor.primaryBackground:
+        return const Color(0xFFD5D8D1);
+      case ThemeColor.green1:
+        return const Color(0xFF3B6445);
+      case ThemeColor.green2:
+        return const Color(0xFF52774D);
+      case ThemeColor.green3:
+        return const Color(0xFF6C934C);
+      case ThemeColor.green4:
+        return const Color(0xFF8BAF56);
+      case ThemeColor.green5:
+        return const Color(0xFFBADE59);
       default:
-        return const Color.fromRGBO(0, 100, 255, 1.0);
+        return const Color(0xFF284635);
     }
   }
 }
@@ -67,7 +85,7 @@ final appThemeDark = _themeLight.copyWith(
 );
 
 ButtonStyle get elevatedButtonStyle => ElevatedButton.styleFrom(
-      primary: ThemeColor.primaryColor.color,
+      primary: ThemeColor.primaryGreen.color,
       minimumSize: const Size(250, 45),
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       shape: const RoundedRectangleBorder(

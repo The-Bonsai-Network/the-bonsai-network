@@ -17,20 +17,20 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    LoginRoute.name: (routeData) {
+    LandingRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const LoginPage());
+          routeData: routeData, child: const LandingPage());
     }
   };
 
   @override
-  List<RouteConfig> get routes => [RouteConfig(LoginRoute.name, path: '/')];
+  List<RouteConfig> get routes => [RouteConfig(LandingRoute.name, path: '/')];
 }
 
 /// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/');
+/// [LandingPage]
+class LandingRoute extends PageRouteInfo<void> {
+  const LandingRoute() : super(LandingRoute.name, path: '/');
 
-  static const String name = 'LoginRoute';
+  static const String name = 'LandingRoute';
 }

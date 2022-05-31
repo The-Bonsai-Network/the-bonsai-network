@@ -1,0 +1,95 @@
+PODS:
+  - connectivity_plus_macos (0.0.1):
+    - FlutterMacOS
+    - ReachabilitySwift
+  - device_info_plus_macos (0.0.1):
+    - FlutterMacOS
+  - flutter_secure_storage_macos (3.3.1):
+    - FlutterMacOS
+  - FlutterMacOS (1.0.0)
+  - mac_notifications (0.0.1):
+    - FlutterMacOS
+  - macos_ui (0.1.0):
+    - FlutterMacOS
+  - path_provider_macos (0.0.1):
+    - FlutterMacOS
+  - ReachabilitySwift (5.0.0)
+  - sqlite3 (3.38.5):
+    - sqlite3/common (= 3.38.5)
+  - sqlite3/common (3.38.5)
+  - sqlite3/fts5 (3.38.5):
+    - sqlite3/common
+  - sqlite3/json1 (3.38.5):
+    - sqlite3/common
+  - sqlite3/perf-threadsafe (3.38.5):
+    - sqlite3/common
+  - sqlite3/rtree (3.38.5):
+    - sqlite3/common
+  - sqlite3_flutter_libs (0.0.1):
+    - FlutterMacOS
+    - sqlite3 (~> 3.38.5)
+    - sqlite3/fts5
+    - sqlite3/json1
+    - sqlite3/perf-threadsafe
+    - sqlite3/rtree
+  - window_manager (0.2.0):
+    - FlutterMacOS
+  - window_size (0.0.2):
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - connectivity_plus_macos (from `Flutter/ephemeral/.symlinks/plugins/connectivity_plus_macos/macos`)
+  - device_info_plus_macos (from `Flutter/ephemeral/.symlinks/plugins/device_info_plus_macos/macos`)
+  - flutter_secure_storage_macos (from `Flutter/ephemeral/.symlinks/plugins/flutter_secure_storage_macos/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - mac_notifications (from `Flutter/ephemeral/.symlinks/plugins/mac_notifications/macos`)
+  - macos_ui (from `Flutter/ephemeral/.symlinks/plugins/macos_ui/macos`)
+  - path_provider_macos (from `Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos`)
+  - sqlite3_flutter_libs (from `Flutter/ephemeral/.symlinks/plugins/sqlite3_flutter_libs/macos`)
+  - window_manager (from `Flutter/ephemeral/.symlinks/plugins/window_manager/macos`)
+  - window_size (from `Flutter/ephemeral/.symlinks/plugins/window_size/macos`)
+
+SPEC REPOS:
+  trunk:
+    - ReachabilitySwift
+    - sqlite3
+
+EXTERNAL SOURCES:
+  connectivity_plus_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/connectivity_plus_macos/macos
+  device_info_plus_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/device_info_plus_macos/macos
+  flutter_secure_storage_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/flutter_secure_storage_macos/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  mac_notifications:
+    :path: Flutter/ephemeral/.symlinks/plugins/mac_notifications/macos
+  macos_ui:
+    :path: Flutter/ephemeral/.symlinks/plugins/macos_ui/macos
+  path_provider_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos
+  sqlite3_flutter_libs:
+    :path: Flutter/ephemeral/.symlinks/plugins/sqlite3_flutter_libs/macos
+  window_manager:
+    :path: Flutter/ephemeral/.symlinks/plugins/window_manager/macos
+  window_size:
+    :path: Flutter/ephemeral/.symlinks/plugins/window_size/macos
+
+SPEC CHECKSUMS:
+  connectivity_plus_macos: f6e86fd000e971d361e54b5afcadc8c8fa773308
+  device_info_plus_macos: 1ad388a1ef433505c4038e7dd9605aadd1e2e9c7
+  flutter_secure_storage_macos: 6ceee8fbc7f484553ad17f79361b556259df89aa
+  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
+  mac_notifications: 3895da14d6b0c9471addb29344731b88d062df66
+  macos_ui: 125c911559d646194386d84c017ad6819122e2db
+  path_provider_macos: 3c0c3b4b0d4a76d2bf989a913c2de869c5641a19
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  sqlite3: 93442daab2ab1825bc9c05faa85814a1996f5b65
+  sqlite3_flutter_libs: d287f671098024f9cde4dc211319335a6a379042
+  window_manager: 3a1844359a6295ab1e47659b1a777e36773cd6e8
+  window_size: 339dafa0b27a95a62a843042038fa6c3c48de195
+
+PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+
+COCOAPODS: 1.11.3
