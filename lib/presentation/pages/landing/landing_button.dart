@@ -1,5 +1,8 @@
-import 'package:bonsai_network/foundation/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+
+import 'package:bonsai_network/foundation/theme.dart';
+import 'package:bonsai_network/presentation/routes/app_router.dart';
 
 class LandingButtonWidget extends StatefulWidget {
   const LandingButtonWidget({Key? key}) : super(key: key);
@@ -33,7 +36,7 @@ class _LandingButtonWidgetState extends State<LandingButtonWidget> {
           color: _color,
           radius: const Radius.circular(22.5),
         ),
-        onPressed: () => {},
+        onPressed: () => context.router.push(const LoginRoute()),
         child: const Text(
           'Let\'s Go',
           style: TextStyle(fontSize: 16),

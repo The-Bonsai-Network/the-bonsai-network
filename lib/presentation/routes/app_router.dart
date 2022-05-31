@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bonsai_network/presentation/pages/landing/landing_page.dart';
@@ -9,6 +10,7 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: LandingPage, initial: true),
+    AutoRoute(page: LoginPage),
     // AutoRoute(
     //   path: '/dashboard',
     //   page: DashboardPage,
