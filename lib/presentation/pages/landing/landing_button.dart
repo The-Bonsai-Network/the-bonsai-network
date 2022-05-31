@@ -36,7 +36,7 @@ class _LandingButtonWidgetState extends State<LandingButtonWidget> {
         onPressed: () => {},
         child: const Text(
           'Let\'s Go',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 16),
         ),
       ),
     );

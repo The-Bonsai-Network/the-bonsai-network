@@ -60,19 +60,19 @@ extension TextStylesExtension on TextStyles {
         );
       case TextStyles.aquireTitle1:
         return TextStyle(
-          fontSize: 52.0,
+          fontSize: 32.0,
           fontFamily: 'Aquire',
           color: ThemeColor.primaryGreen.color,
         );
       case TextStyles.aquireTitle2:
         return TextStyle(
-          fontSize: 38.0,
+          fontSize: 28.0,
           fontFamily: 'Aquire',
           color: ThemeColor.primaryGreen.color,
         );
       case TextStyles.aquireTitle3:
         return TextStyle(
-          fontSize: 32.0,
+          fontSize: 22.0,
           fontFamily: 'Aquire',
           color: ThemeColor.primaryGreen.color,
         );

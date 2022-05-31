@@ -37,57 +37,67 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeColor.primaryBackground.color,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Spacer(),
-          Center(
-            child: FutureBuilder<ui.Image>(
-              future: loadImage('assets/images/bonsai.png'),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return CustomPaint(
-                    size: const Size(10, 10),
-                    foregroundPainter: ConcentricCirclesPainter(snapshot.data!),
-                  );
-                } else {
-                  return Container();
-                }
-              },
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 110),
             ),
-          ),
-          const Spacer(),
-          Text(
-            'THE',
-            style: TextStyles.aquireTitle3.style,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              'BONSAI',
-              style: TextStyles.aquireTitle1.style,
-            ),
-          ),
-          Text(
-            'NETWORK',
-            style: TextStyles.aquireTitle3.style,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 22.0),
-            child: Text(
-              'Connecting Business Entrepreneurs',
-              style: TextStyle(
-                color: ThemeColor.primaryGreen.color,
-                fontSize: 22,
+            Center(
+              child: FutureBuilder<ui.Image>(
+                future: loadImage('assets/images/bonsai.png'),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return CustomPaint(
+                      size: const Size(10, 10),
+                      foregroundPainter:
+                          ConcentricCirclesPainter(snapshot.data!),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: LandingButtonWidget(),
-          ),
-          const Spacer(),
-        ],
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 100.0),
+            ),
+            Text(
+              'THE',
+              style: TextStyles.aquireTitle3.style,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                'BONSAI',
+                style: TextStyles.aquireTitle1.style,
+              ),
+            ),
+            Text(
+              'NETWORK',
+              style: TextStyles.aquireTitle3.style,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 22.0),
+              child: Text(
+                'Connecting Business Entrepreneurs',
+                style: TextStyle(
+                  color: ThemeColor.primaryGreen.color,
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: LandingButtonWidget(),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+            ),
+          ],
+        ),
       ),
     );
   }
