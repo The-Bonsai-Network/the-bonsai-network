@@ -43,17 +43,38 @@ class AppThemeData extends ChangeNotifier {
 }
 
 enum TextStyles {
-  gilroy,
+  aquire,
+  aquireTitle1,
+  aquireTitle2,
+  aquireTitle3,
 }
 
 extension TextStylesExtension on TextStyles {
   TextStyle get style {
     switch (this) {
-      case TextStyles.gilroy:
+      case TextStyles.aquire:
         return const TextStyle(
           fontSize: 22.0,
-          fontFamily: 'Gilroy',
+          fontFamily: 'Aquire',
           color: Colors.black,
+        );
+      case TextStyles.aquireTitle1:
+        return TextStyle(
+          fontSize: 52.0,
+          fontFamily: 'Aquire',
+          color: ThemeColor.primaryGreen.color,
+        );
+      case TextStyles.aquireTitle2:
+        return TextStyle(
+          fontSize: 38.0,
+          fontFamily: 'Aquire',
+          color: ThemeColor.primaryGreen.color,
+        );
+      case TextStyles.aquireTitle3:
+        return TextStyle(
+          fontSize: 32.0,
+          fontFamily: 'Aquire',
+          color: ThemeColor.primaryGreen.color,
         );
     }
   }
@@ -67,7 +88,7 @@ final appTheme = _themeLight.copyWith(
     primary: Colors.blue,
   ),
   textTheme: _themeLight.textTheme.copyWith(
-    caption: TextStyles.gilroy.style,
+    caption: TextStyles.aquire.style,
   ),
   canvasColor: const Color(0xFFE5E5E5),
   backgroundColor: const Color(0xFFE5E5E5),
@@ -79,7 +100,7 @@ final appThemeDark = _themeLight.copyWith(
     primary: Colors.blue,
   ),
   textTheme: _themeLight.textTheme.copyWith(
-    caption: TextStyles.gilroy.style,
+    caption: TextStyles.aquire.style,
   ),
   brightness: Brightness.dark,
 );
