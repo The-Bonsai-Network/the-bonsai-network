@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -17,15 +15,17 @@ class LoginPage extends StatelessWidget {
         slivers: <Widget>[
           SliverLayoutBuilder(
             builder: (BuildContext context, constraints) {
-              double scrollOffset =
-                  (constraints.scrollOffset / 200.0).abs().clamp(0.0, 1.0);
-              final isNotScrolled = constraints.scrollOffset < 20;
+              double scrollOffset = (constraints.scrollOffset / 200.0)
+                ..abs()
+                ..clamp(0.0, 1.0);
 
               return SliverAppBar(
                 expandedHeight: 120.0,
                 stretch: true,
                 pinned: true,
                 floating: true,
+                elevation: 0.0,
+                leadingWidth: 200,
                 leading: InkWell(
                   child: Row(
                     children: const [
@@ -46,21 +46,29 @@ class LoginPage extends StatelessWidget {
                 backgroundColor: scrollOffset >= 0.0
                     ? Colors.white.withOpacity(scrollOffset)
                     : Colors.transparent,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(color: Colors.transparent),
-                  centerTitle: scrollOffset >= 0.2,
-                  titlePadding: const EdgeInsets.all(12.0),
-                  title: const Text(
-                    'Personal Information',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                    ),
-                  ),
-                  stretchModes: const [
-                    StretchMode.blurBackground,
-                    StretchMode.fadeTitle,
-                  ],
+                flexibleSpace: OrientationBuilder(
+                  builder: (context, orientation) {
+                    return FlexibleSpaceBar(
+                      background: Container(color: Colors.transparent),
+                      centerTitle: scrollOffset >= 0.2,
+                      titlePadding: EdgeInsets.symmetric(
+                        horizontal:
+                            orientation == Orientation.portrait ? 12.0 : 48.0,
+                        vertical: 12.0,
+                      ),
+                      title: const Text(
+                        'Personal Information',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                      stretchModes: const [
+                        StretchMode.blurBackground,
+                        StretchMode.fadeTitle,
+                      ],
+                    );
+                  },
                 ),
               );
             },
