@@ -53,55 +53,49 @@ extension TextStylesExtension on TextStyles {
   TextStyle get style {
     switch (this) {
       case TextStyles.aquire:
-        return const TextStyle(
-          fontSize: 22.0,
-          fontFamily: 'Aquire',
-          color: Colors.black,
-        );
+        return const TextStyle(fontSize: 22.0, fontFamily: 'Aquire');
       case TextStyles.aquireTitle1:
-        return TextStyle(
-          fontSize: 32.0,
-          fontFamily: 'Aquire',
-          color: ThemeColor.primaryGreen.color,
-        );
+        return const TextStyle(fontSize: 32.0, fontFamily: 'Aquire');
       case TextStyles.aquireTitle2:
-        return TextStyle(
-          fontSize: 28.0,
-          fontFamily: 'Aquire',
-          color: ThemeColor.primaryGreen.color,
-        );
+        return const TextStyle(fontSize: 28.0, fontFamily: 'Aquire');
       case TextStyles.aquireTitle3:
-        return TextStyle(
-          fontSize: 22.0,
-          fontFamily: 'Aquire',
-          color: ThemeColor.primaryGreen.color,
-        );
+        return const TextStyle(fontSize: 22.0, fontFamily: 'Aquire');
     }
   }
 }
 
 final ThemeData _themeLight = ThemeData.light();
-// final ThemeData _themeDark = ThemeData.dark();
+final ThemeData _themeDark = ThemeData.dark();
 
 final appTheme = _themeLight.copyWith(
   colorScheme: _themeLight.colorScheme.copyWith(
-    primary: Colors.blue,
+    primary: ThemeColor.primaryGreen.color,
   ),
-  textTheme: _themeLight.textTheme.copyWith(
-    caption: TextStyles.aquire.style,
-  ),
-  canvasColor: const Color(0xFFE5E5E5),
-  backgroundColor: const Color(0xFFE5E5E5),
+  textTheme: _themeLight.textTheme
+      .copyWith(
+        caption: TextStyles.aquire.style,
+      )
+      .apply(
+        bodyColor: Colors.black,
+        displayColor: ThemeColor.primaryGreen.color,
+      ),
+  scaffoldBackgroundColor: ThemeColor.primaryBackground.color,
   brightness: Brightness.light,
 );
 
-final appThemeDark = _themeLight.copyWith(
-  colorScheme: _themeLight.colorScheme.copyWith(
-    primary: Colors.blue,
+final appThemeDark = _themeDark.copyWith(
+  colorScheme: _themeDark.colorScheme.copyWith(
+    primary: ThemeColor.primaryGreen.color,
   ),
-  textTheme: _themeLight.textTheme.copyWith(
-    caption: TextStyles.aquire.style,
-  ),
+  textTheme: _themeLight.textTheme
+      .copyWith(
+        caption: TextStyles.aquire.style,
+      )
+      .apply(
+        bodyColor: Colors.white,
+        displayColor: ThemeColor.green4.color,
+      ),
+  scaffoldBackgroundColor: Colors.black,
   brightness: Brightness.dark,
 );
 

@@ -36,7 +36,6 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ThemeColor.primaryBackground.color,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -84,9 +83,7 @@ class LandingPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 22.0),
               child: Text(
                 'Connecting Business Entrepreneurs',
-                style: TextStyle(
-                  color: ThemeColor.primaryGreen.color,
-                ),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
             const Padding(
