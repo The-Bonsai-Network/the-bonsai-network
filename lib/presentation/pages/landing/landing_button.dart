@@ -36,7 +36,7 @@ class _LandingButtonWidgetState extends State<LandingButtonWidget> {
           color: _color,
           radius: const Radius.circular(22.5),
         ),
-        onPressed: () => context.router.push(const LoginRoute()),
+        onPressed: () => context.router.replace(const LoginRoute()),
         child: const Text(
           'Let\'s Go',
           style: TextStyle(fontSize: 16),
