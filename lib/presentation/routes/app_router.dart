@@ -1,7 +1,9 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 
+import 'package:bonsai_network/presentation/pages/login/components/login_profile.dart';
+import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
+import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:bonsai_network/presentation/pages/landing/landing_page.dart';
 
 part 'app_router.gr.dart';
@@ -10,18 +12,15 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: LandingPage, initial: true),
-    AutoRoute(page: LoginPage),
-    // AutoRoute(
-    //   path: '/dashboard',
-    //   page: DashboardPage,
-    //   children: [
-    //     AutoRoute(path: ':week', page: WeekPage),
-    //     AutoRoute(path: ':calendar', page: CalendarPage),
-    //     AutoRoute(path: ':lessons', page: LessonsPage),
-    //     AutoRoute(path: ':library', page: LibraryPage),
-    //     RedirectRoute(path: '*', redirectTo: ''),
-    //   ],
-    // ),
+    AutoRoute(
+      path: '/login',
+      page: LoginPage,
+      children: [
+        AutoRoute(path: ':profile', page: LoginProfilePage),
+        AutoRoute(path: ':linkedin', page: LinkedInPage),
+        RedirectRoute(path: '*', redirectTo: ''),
+      ],
+    ),
   ],
 )
 class AppRouter extends _$AppRouter {}

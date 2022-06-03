@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:system_theme/system_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 bool get isDesktop {
   if (kIsWeb) return false;
@@ -20,6 +21,8 @@ bool get isDesktop {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureInjection(Environment.prod);
+
+  await dotenv.load(fileName: ".env");
 
   setupWindow();
 

@@ -21,6 +21,7 @@ class LoginPageAppBarWidget extends StatelessWidget {
           leadingWidth: 200,
           leading: InkWell(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
                   Icons.chevron_left,
@@ -39,7 +40,7 @@ class LoginPageAppBarWidget extends StatelessWidget {
             onTap: () => context.router.popUntilRoot(),
           ),
           backgroundColor: scrollOffset >= 0.0
-              ? Colors.white.withOpacity(scrollOffset.clamp(0.0, 1.0))
+              ? Colors.grey.withOpacity(scrollOffset.clamp(0.0, 1.0))
               : Colors.transparent,
           flexibleSpace: OrientationBuilder(
             builder: (context, orientation) {
