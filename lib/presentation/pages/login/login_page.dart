@@ -29,29 +29,32 @@ class _LoginPageWidget extends StatelessWidget {
         slivers: <Widget>[
           const LoginPageAppBarWidget(),
           SliverSafeArea(
+            top: false,
             sliver: SliverPadding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              sliver: SliverFillRemaining(
-                hasScrollBody: true,
-                fillOverscroll: true,
-                child: Consumer<LoginMenuNotifier>(
-                  builder: (context, model, _) => Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Text(
-                          'Let other entrepreneurs find out more about you.',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Consumer<LoginMenuNotifier>(
+                      builder: (context, model, _) => Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 12.0),
+                            child: Text(
+                              'Let other entrepreneurs find out more about you.',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ),
+                          const OAuthContainerWidget(),
+                          const LoginProfilePage(),
+                        ],
                       ),
-                      const OAuthContainerWidget(),
-                      const LoginProfilePage(),
-                      const LinkedInAuthCodePage()
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -71,14 +71,10 @@ final appTheme = _themeLight.copyWith(
   colorScheme: _themeLight.colorScheme.copyWith(
     primary: ThemeColor.primaryGreen.color,
   ),
-  textTheme: _themeLight.textTheme
-      .copyWith(
-        caption: TextStyles.aquire.style,
-      )
-      .apply(
-        bodyColor: Colors.black,
-        displayColor: ThemeColor.primaryGreen.color,
-      ),
+  textTheme: _themeLight.textTheme.apply(
+    bodyColor: Colors.black,
+    displayColor: ThemeColor.primaryGreen.color,
+  ),
   scaffoldBackgroundColor: ThemeColor.primaryBackground.color,
   brightness: Brightness.light,
 );
@@ -87,14 +83,10 @@ final appThemeDark = _themeDark.copyWith(
   colorScheme: _themeDark.colorScheme.copyWith(
     primary: ThemeColor.primaryGreen.color,
   ),
-  textTheme: _themeLight.textTheme
-      .copyWith(
-        caption: TextStyles.aquire.style,
-      )
-      .apply(
-        bodyColor: Colors.white,
-        displayColor: ThemeColor.green4.color,
-      ),
+  textTheme: _themeLight.textTheme.apply(
+    bodyColor: Colors.white,
+    displayColor: ThemeColor.green4.color,
+  ),
   scaffoldBackgroundColor: Colors.black,
   brightness: Brightness.dark,
 );

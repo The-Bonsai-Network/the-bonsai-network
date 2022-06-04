@@ -1,3 +1,4 @@
+import 'package:bonsai_network/foundation/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:linkedin_login/linkedin_login.dart';
@@ -12,49 +13,72 @@ class LinkedInPage extends StatefulWidget {
 class _LinkedInPageState extends State<LinkedInPage> {
   UserObject? user;
   bool logoutUser = false;
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    setState(() {
+      isLoading = false;
+    });
+
+    Future.delayed(const Duration(seconds: 2)).then((_) {
+      setState(() {
+        isLoading = true;
+      });
+    });
+
+    super.initState();
+  }
 
   @override
   Widget build(final BuildContext context) {
-    return LinkedInUserWidget(
-      destroySession: logoutUser,
-      redirectUrl: dotenv.env['LINKEDIN_REDIRECT_URI'],
-      clientId: dotenv.env['LINKEDIN_CLIENT_ID'],
-      clientSecret: dotenv.env['LINKEDIN_CLIENT_SECRET'],
-      useVirtualDisplay: true,
-      projection: const [
-        ProjectionParameters.id,
-        ProjectionParameters.localizedFirstName,
-        ProjectionParameters.localizedLastName,
-        ProjectionParameters.firstName,
-        ProjectionParameters.lastName,
-        ProjectionParameters.profilePicture,
-      ],
-      onError: (final UserFailedAction e) {
-        print('Error: ${e.toString()}');
-        print('Error: ${e.stackTrace.toString()}');
-      },
-      onGetUserProfile: (final UserSucceededAction linkedInUser) {
-        print(
-          'Access token ${linkedInUser.user.token.accessToken}',
-        );
-
-        print('User id: ${linkedInUser.user.userId}');
-
-        user = UserObject(
-          firstName: linkedInUser.user.firstName?.localized?.label ?? '',
-          lastName: linkedInUser.user.lastName?.localized?.label ?? '',
-          email:
-              linkedInUser.user.email?.elements?[0].handleDeep?.emailAddress ??
+    return Stack(
+      children: [
+        LinkedInUserWidget(
+          destroySession: logoutUser,
+          redirectUrl: dotenv.env['LINKEDIN_REDIRECT_URI'],
+          clientId: dotenv.env['LINKEDIN_CLIENT_ID'],
+          clientSecret: dotenv.env['LINKEDIN_CLIENT_SECRET'],
+          useVirtualDisplay: true,
+          projection: const [
+            ProjectionParameters.id,
+            ProjectionParameters.localizedFirstName,
+            ProjectionParameters.localizedLastName,
+            ProjectionParameters.firstName,
+            ProjectionParameters.lastName,
+            ProjectionParameters.profilePicture,
+          ],
+          onGetUserProfile: (final UserSucceededAction linkedInUser) {
+            user = UserObject(
+              firstName: linkedInUser.user.firstName?.localized?.label ?? '',
+              lastName: linkedInUser.user.lastName?.localized?.label ?? '',
+              email: linkedInUser
+                      .user.email?.elements?[0].handleDeep?.emailAddress ??
                   '',
-          profileImageUrl: linkedInUser.user.profilePicture?.displayImageContent
-                  ?.elements?[0].identifiers?[0].identifier ??
-              '',
-        );
+              profileImageUrl: linkedInUser
+                      .user
+                      .profilePicture
+                      ?.displayImageContent
+                      ?.elements?[0]
+                      .identifiers?[0]
+                      .identifier ??
+                  '',
+            );
 
-        setState(() {
-          logoutUser = false;
-        });
-      },
+            setState(() {
+              logoutUser = false;
+            });
+          },
+        ),
+        if (!isLoading) ...[
+          Center(
+            child: CircularProgressIndicator(
+              color: ThemeColor.primaryGreen.color,
+              strokeWidth: 2.0,
+            ),
+          ),
+        ]
+      ],
     );
   }
 }
