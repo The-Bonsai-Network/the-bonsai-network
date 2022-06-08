@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
-import 'package:bonsai_network/presentation/pages/login/components/login_profile.dart';
+import 'package:bonsai_network/presentation/pages/login/components/profile/login_profile.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
 import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:bonsai_network/presentation/pages/landing/landing_page.dart';

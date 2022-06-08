@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 enum ThemeColor {
   primaryGreen,
   primaryBackground,
+  secondaryBackground,
   green1,
   green2,
   green3,
@@ -17,6 +18,8 @@ extension ThemeColorExtension on ThemeColor {
         return const Color(0xFF284635);
       case ThemeColor.primaryBackground:
         return const Color(0xFFD5D8D1);
+      case ThemeColor.secondaryBackground:
+        return const Color(0xFFE6EAE1);
       case ThemeColor.green1:
         return const Color(0xFF3B6445);
       case ThemeColor.green2:
@@ -77,6 +80,11 @@ final appTheme = _themeLight.copyWith(
   ),
   scaffoldBackgroundColor: ThemeColor.primaryBackground.color,
   brightness: Brightness.light,
+  dialogTheme: const DialogTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(16)),
+    ),
+  ),
 );
 
 final appThemeDark = _themeDark.copyWith(
@@ -89,6 +97,11 @@ final appThemeDark = _themeDark.copyWith(
   ),
   scaffoldBackgroundColor: Colors.black,
   brightness: Brightness.dark,
+  dialogTheme: const DialogTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(16)),
+    ),
+  ),
 );
 
 ButtonStyle get elevatedButtonStyle => ElevatedButton.styleFrom(

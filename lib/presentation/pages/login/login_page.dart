@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:bonsai_network/application/login_menu_notifier.dart';
 import 'package:bonsai_network/presentation/pages/login/components/login_page_app_bar.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth_container.dart';
-import 'package:bonsai_network/presentation/pages/login/components/login_profile.dart';
-import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
+import 'package:bonsai_network/presentation/pages/login/components/profile/login_profile.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);

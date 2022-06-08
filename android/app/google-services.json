@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "363240734612",
+    "project_id": "pioneering-axe-334921",
+    "storage_bucket": "pioneering-axe-334921.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363240734612:android:2de1c8a71d9fdaead81981",
+        "android_client_info": {
+          "package_name": "com.example.bonsai_network"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363240734612-9f2dkk18krcb2lgaforb77qg1liqsf1a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhZOwtgRUdw28o52T2MHZ9L8tSi6t5pvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363240734612-9anqaddpqk6b2q9c7bmh939o15cq5a3s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "363240734612-v9mkb4p3kor4s5ll1e8jmrpc4gjc591t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "network.thebonsai.Bonsai"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

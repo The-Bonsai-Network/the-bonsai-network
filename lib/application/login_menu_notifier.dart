@@ -5,26 +5,19 @@ import 'package:bonsai_network/presentation/routes/app_router.dart';
 
 @injectable
 class LoginMenuNotifier extends ChangeNotifier {
-  bool _visible = true;
   String _currentRoute = LoginProfileRoute.name;
-  int _currentIndex = 0;
+  int _currentGenderIndex = 0;
 
-  bool get visible => _visible;
   String get currentRoute => _currentRoute;
-  int get currentIndex => _currentIndex;
-
-  set visible(bool visible) {
-    _visible = visible;
-    notifyListeners();
-  }
+  int get currentGenderIndex => _currentGenderIndex;
 
   set currentRoute(String currentRoute) {
     _currentRoute = currentRoute;
     notifyListeners();
   }
 
-  set currentIndex(int currentIndex) {
-    _currentIndex = currentIndex;
+  set currentGenderIndex(int currentIndex) {
+    _currentGenderIndex = currentIndex;
     notifyListeners();
   }
 }

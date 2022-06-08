@@ -76,6 +76,12 @@ dependencies:
   # For UI Components
   window_manager: ^0.2.3
   system_theme: ^2.0.0
+  table_calendar: ^3.0.5
+
+  # For Firebase
+  firebase_core: ^1.17.1
+  firebase_auth: ^3.3.19
+  cloud_firestore: ^3.1.17
 
   # For OAuth
   linkedin_login: ^2.2.1
