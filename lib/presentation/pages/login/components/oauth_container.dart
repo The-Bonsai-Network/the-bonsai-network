@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import 'package:bonsai_network/injection.dart';
+import 'package:bonsai_network/presentation/pages/login/components/oauth/apple_oauth.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
 import 'package:bonsai_network/presentation/routes/app_router.dart';
 import 'package:bonsai_network/application/login_menu_notifier.dart';
@@ -65,11 +68,11 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
             splashColor: ThemeColor.green4.color,
             borderRadius: BorderRadius.circular(12.0),
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(2.0),
               child: SvgPicture.asset(
                 svg,
                 fit: BoxFit.contain,
-                width: 50.0,
+                width: 40.0,
               ),
             ),
             onTap: () {
@@ -92,16 +95,34 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
         children: [
-          _buildSplashOAuthButton(
-              'assets/images/oauth/google.svg', LinkedInRoute.name),
-          _buildSplashOAuthButton(
-              'assets/images/oauth/facebook.svg', LinkedInRoute.name),
-          _buildSplashOAuthButton(
-              'assets/images/oauth/linkedin.svg', LinkedInRoute.name),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildSplashOAuthButton(
+                  'assets/images/oauth/google.svg', LinkedInRoute.name),
+              _buildSplashOAuthButton(
+                  'assets/images/oauth/facebook.svg', LinkedInRoute.name),
+              _buildSplashOAuthButton(
+                  'assets/images/oauth/linkedin.svg', LinkedInRoute.name),
+            ],
+          ),
+          if (Platform.isIOS) ...[
+            InkWell(
+              highlightColor: ThemeColor.green5.color.withOpacity(0.2),
+              splashColor: ThemeColor.green4.color,
+              borderRadius: BorderRadius.circular(12.0),
+              child: const Padding(
+                padding: EdgeInsets.all(12.0),
+                child: SizedBox(
+                  height: 50.0,
+                  child: AppleSignInButton(),
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );

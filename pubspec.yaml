@@ -85,6 +85,8 @@ dependencies:
 
   # For OAuth
   linkedin_login: ^2.2.1
+  google_sign_in: ^5.3.3
+  sign_in_with_apple: ^4.0.0
 
   # For URL Management
   url_strategy: ^0.2.0

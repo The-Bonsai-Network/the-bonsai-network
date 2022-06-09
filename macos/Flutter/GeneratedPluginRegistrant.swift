@@ -14,6 +14,7 @@ import flutter_secure_storage_macos
 import mac_notifications
 import macos_ui
 import path_provider_macos
+import sign_in_with_apple
 import sqlite3_flutter_libs
 import window_manager
 import window_size
@@ -28,6 +29,7 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   MacNotificationsPlugin.register(with: registry.registrar(forPlugin: "MacNotificationsPlugin"))
   MacOSUiPlugin.register(with: registry.registrar(forPlugin: "MacOSUiPlugin"))
   PathProviderPlugin.register(with: registry.registrar(forPlugin: "PathProviderPlugin"))
+  SignInWithApplePlugin.register(with: registry.registrar(forPlugin: "SignInWithApplePlugin"))
   Sqlite3FlutterLibsPlugin.register(with: registry.registrar(forPlugin: "Sqlite3FlutterLibsPlugin"))
   WindowManagerPlugin.register(with: registry.registrar(forPlugin: "WindowManagerPlugin"))
   WindowSizePlugin.register(with: registry.registrar(forPlugin: "WindowSizePlugin"))
