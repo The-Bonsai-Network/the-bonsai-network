@@ -17,15 +17,39 @@ class OAuthContainerWidget extends StatefulWidget {
 }
 
 class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
+  Widget _buildLinkedInnerSheet(BuildContext context) {
+    return DraggableScrollableSheet(
+      initialChildSize: 0.9,
+      minChildSize: 0.5,
+      maxChildSize: 1.0,
+      expand: false,
+      builder: (context, scrollController) {
+        return SingleChildScrollView(
+          controller: scrollController,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 25.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: const LinkedInPage(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   Future<void> _buildLinkedInModal() {
     return showModalBottomSheet(
       context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      isScrollControlled: true,
+      isDismissible: true,
       builder: (BuildContext context) {
         return ChangeNotifierProvider(
           create: (context) => getIt<LoginMenuNotifier>(),
-          child: const Expanded(
-            child: LinkedInPage(),
-          ),
+          child: _buildLinkedInnerSheet(context),
         );
       },
     );
