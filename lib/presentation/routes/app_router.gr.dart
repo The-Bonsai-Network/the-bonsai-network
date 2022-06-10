@@ -25,6 +25,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginPage());
     },
+    DashboardRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const DashboardPage());
+    },
     LoginProfileRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginProfilePage());
@@ -32,6 +36,10 @@ class _$AppRouter extends RootStackRouter {
     LinkedInRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LinkedInPage());
+    },
+    CofoundersRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const CofoundersPage());
     }
   };
 
@@ -46,6 +54,15 @@ class _$AppRouter extends RootStackRouter {
           RouteConfig('*#redirect',
               path: '*',
               parent: LoginRoute.name,
+              redirectTo: '',
+              fullMatch: true)
+        ]),
+        RouteConfig(DashboardRoute.name, path: '/dashboard', children: [
+          RouteConfig(CofoundersRoute.name,
+              path: ':cofounders', parent: DashboardRoute.name),
+          RouteConfig('*#redirect',
+              path: '*',
+              parent: DashboardRoute.name,
               redirectTo: '',
               fullMatch: true)
         ])
@@ -70,6 +87,16 @@ class LoginRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DashboardPage]
+class DashboardRoute extends PageRouteInfo<void> {
+  const DashboardRoute({List<PageRouteInfo>? children})
+      : super(DashboardRoute.name,
+            path: '/dashboard', initialChildren: children);
+
+  static const String name = 'DashboardRoute';
+}
+
+/// generated route for
 /// [LoginProfilePage]
 class LoginProfileRoute extends PageRouteInfo<void> {
   const LoginProfileRoute() : super(LoginProfileRoute.name, path: ':profile');
@@ -83,4 +110,12 @@ class LinkedInRoute extends PageRouteInfo<void> {
   const LinkedInRoute() : super(LinkedInRoute.name, path: ':linkedin');
 
   static const String name = 'LinkedInRoute';
+}
+
+/// generated route for
+/// [CofoundersPage]
+class CofoundersRoute extends PageRouteInfo<void> {
+  const CofoundersRoute() : super(CofoundersRoute.name, path: ':cofounders');
+
+  static const String name = 'CofoundersRoute';
 }

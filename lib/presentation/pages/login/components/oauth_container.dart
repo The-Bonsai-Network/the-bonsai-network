@@ -72,7 +72,7 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
               child: SvgPicture.asset(
                 svg,
                 fit: BoxFit.contain,
-                width: 40.0,
+                width: 50.0,
               ),
             ),
             onTap: () {
@@ -110,16 +110,11 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
             ],
           ),
           if (Platform.isIOS) ...[
-            InkWell(
-              highlightColor: ThemeColor.green5.color.withOpacity(0.2),
-              splashColor: ThemeColor.green4.color,
-              borderRadius: BorderRadius.circular(12.0),
-              child: const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: SizedBox(
-                  height: 50.0,
-                  child: AppleSignInButton(),
-                ),
+            const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: SizedBox(
+                height: 50.0,
+                child: AppleSignInButton(),
               ),
             ),
           ],

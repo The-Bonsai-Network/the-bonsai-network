@@ -1,6 +1,4 @@
 import 'dart:io';
-// Needed because we can't import `dart:html` into a mobile app,
-// while on the flip-side access to `dart:io` throws at runtime (hence the `kIsWeb` check below)
 import 'package:bonsai_network/foundation/html_shim.dart'
     if (dart.library.html) 'dart:html' show window;
 
@@ -16,8 +14,7 @@ class AppleSignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignInWithAppleButton(
-      height: 50,
-      iconAlignment: IconAlignment.left,
+      iconAlignment: IconAlignment.center,
       style: SignInWithAppleButtonStyle.white,
       onPressed: () async {
         final clientId = dotenv.env['APPL_SERVICE_ID'] ?? '';

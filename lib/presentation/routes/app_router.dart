@@ -5,6 +5,8 @@ import 'package:bonsai_network/presentation/pages/login/components/profile/login
 import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
 import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:bonsai_network/presentation/pages/landing/landing_page.dart';
+import 'package:bonsai_network/presentation/pages/dashboard/dashboard_page.dart';
+import 'package:bonsai_network/presentation/pages/cofounders/cofounders_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -18,6 +20,14 @@ part 'app_router.gr.dart';
       children: [
         AutoRoute(path: ':profile', page: LoginProfilePage),
         AutoRoute(path: ':linkedin', page: LinkedInPage),
+        RedirectRoute(path: '*', redirectTo: ''),
+      ],
+    ),
+    AutoRoute(
+      path: '/dashboard',
+      page: DashboardPage,
+      children: [
+        AutoRoute(path: ':cofounders', page: CofoundersPage),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),
