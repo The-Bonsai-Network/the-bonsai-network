@@ -46,14 +46,14 @@ class _DashboardPageMobileState extends State<DashboardPageMobile> {
           alignment: Alignment.bottomCenter,
           children: [
             AutoRouter(
-              placeholder: (_) => const CofoundersPage(),
+              placeholder: (_) => CofoundersPage(),
               builder: (_, child) {
                 switch (model2.currentRoute) {
                   case CofoundersRoute.name:
-                    return const CofoundersPage();
+                    return CofoundersPage();
 
                   default:
-                    return const CofoundersPage();
+                    return CofoundersPage();
                 }
               },
             ),

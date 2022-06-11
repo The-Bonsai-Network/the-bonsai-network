@@ -38,8 +38,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const LinkedInPage());
     },
     CofoundersRoute.name: (routeData) {
+      final args = routeData.argsAs<CofoundersRouteArgs>(
+          orElse: () => const CofoundersRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const CofoundersPage());
+          routeData: routeData, child: CofoundersPage(key: args.key));
     }
   };
 
@@ -114,8 +116,21 @@ class LinkedInRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CofoundersPage]
-class CofoundersRoute extends PageRouteInfo<void> {
-  const CofoundersRoute() : super(CofoundersRoute.name, path: ':cofounders');
+class CofoundersRoute extends PageRouteInfo<CofoundersRouteArgs> {
+  CofoundersRoute({Key? key})
+      : super(CofoundersRoute.name,
+            path: ':cofounders', args: CofoundersRouteArgs(key: key));
 
   static const String name = 'CofoundersRoute';
+}
+
+class CofoundersRouteArgs {
+  const CofoundersRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CofoundersRouteArgs{key: $key}';
+  }
 }

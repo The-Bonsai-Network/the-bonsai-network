@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import 'package:bonsai_network/presentation/routes/app_router.dart';
+
 class LoginPageAppBarWidget extends StatelessWidget {
   const LoginPageAppBarWidget({Key? key}) : super(key: key);
 
@@ -20,7 +22,8 @@ class LoginPageAppBarWidget extends StatelessWidget {
           elevation: 0.0,
           leadingWidth: 200,
           leading: InkWell(
-            onTap: () => context.router.popUntilRoot(),
+            onTap: () =>
+                AutoRouter.of(context).replaceAll([const LandingRoute()]),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
