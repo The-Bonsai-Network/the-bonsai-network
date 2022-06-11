@@ -22,7 +22,8 @@ mixin _$UserProfile {
   String? get username => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String? get gender => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
+  DateTime? get dateOfBirth => throw _privateConstructorUsedError;
   List<String>? get profilePaths => throw _privateConstructorUsedError;
   List<String>? get headerPaths => throw _privateConstructorUsedError;
 
@@ -43,7 +44,8 @@ abstract class $UserProfileCopyWith<$Res> {
       String? username,
       String? displayName,
       String? email,
-      String? gender,
+      int? gender,
+      DateTime? dateOfBirth,
       List<String>? profilePaths,
       List<String>? headerPaths});
 }
@@ -65,6 +67,7 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
     Object? displayName = freezed,
     Object? email = freezed,
     Object? gender = freezed,
+    Object? dateOfBirth = freezed,
     Object? profilePaths = freezed,
     Object? headerPaths = freezed,
   }) {
@@ -96,7 +99,11 @@ class _$UserProfileCopyWithImpl<$Res> implements $UserProfileCopyWith<$Res> {
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
+      dateOfBirth: dateOfBirth == freezed
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       profilePaths: profilePaths == freezed
           ? _value.profilePaths
           : profilePaths // ignore: cast_nullable_to_non_nullable
@@ -123,7 +130,8 @@ abstract class _$$_UserProfileCopyWith<$Res>
       String? username,
       String? displayName,
       String? email,
-      String? gender,
+      int? gender,
+      DateTime? dateOfBirth,
       List<String>? profilePaths,
       List<String>? headerPaths});
 }
@@ -147,6 +155,7 @@ class __$$_UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
     Object? displayName = freezed,
     Object? email = freezed,
     Object? gender = freezed,
+    Object? dateOfBirth = freezed,
     Object? profilePaths = freezed,
     Object? headerPaths = freezed,
   }) {
@@ -178,7 +187,11 @@ class __$$_UserProfileCopyWithImpl<$Res> extends _$UserProfileCopyWithImpl<$Res>
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
+      dateOfBirth: dateOfBirth == freezed
+          ? _value.dateOfBirth
+          : dateOfBirth // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       profilePaths: profilePaths == freezed
           ? _value._profilePaths
           : profilePaths // ignore: cast_nullable_to_non_nullable
@@ -202,6 +215,7 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
       this.displayName,
       this.email,
       this.gender,
+      this.dateOfBirth,
       final List<String>? profilePaths,
       final List<String>? headerPaths})
       : _profilePaths = profilePaths,
@@ -221,7 +235,9 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
   @override
   final String? email;
   @override
-  final String? gender;
+  final int? gender;
+  @override
+  final DateTime? dateOfBirth;
   final List<String>? _profilePaths;
   @override
   List<String>? get profilePaths {
@@ -242,7 +258,7 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserProfile(userId: $userId, firstName: $firstName, lastName: $lastName, username: $username, displayName: $displayName, email: $email, gender: $gender, profilePaths: $profilePaths, headerPaths: $headerPaths)';
+    return 'UserProfile(userId: $userId, firstName: $firstName, lastName: $lastName, username: $username, displayName: $displayName, email: $email, gender: $gender, dateOfBirth: $dateOfBirth, profilePaths: $profilePaths, headerPaths: $headerPaths)';
   }
 
   @override
@@ -257,6 +273,7 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('displayName', displayName))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('gender', gender))
+      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
       ..add(DiagnosticsProperty('profilePaths', profilePaths))
       ..add(DiagnosticsProperty('headerPaths', headerPaths));
   }
@@ -275,6 +292,8 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality()
+                .equals(other.dateOfBirth, dateOfBirth) &&
+            const DeepCollectionEquality()
                 .equals(other._profilePaths, _profilePaths) &&
             const DeepCollectionEquality()
                 .equals(other._headerPaths, _headerPaths));
@@ -290,6 +309,7 @@ class _$_UserProfile extends _UserProfile with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(displayName),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(dateOfBirth),
       const DeepCollectionEquality().hash(_profilePaths),
       const DeepCollectionEquality().hash(_headerPaths));
 
@@ -307,7 +327,8 @@ abstract class _UserProfile extends UserProfile {
       final String? username,
       final String? displayName,
       final String? email,
-      final String? gender,
+      final int? gender,
+      final DateTime? dateOfBirth,
       final List<String>? profilePaths,
       final List<String>? headerPaths}) = _$_UserProfile;
   const _UserProfile._() : super._();
@@ -325,7 +346,9 @@ abstract class _UserProfile extends UserProfile {
   @override
   String? get email => throw _privateConstructorUsedError;
   @override
-  String? get gender => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
+  @override
+  DateTime? get dateOfBirth => throw _privateConstructorUsedError;
   @override
   List<String>? get profilePaths => throw _privateConstructorUsedError;
   @override

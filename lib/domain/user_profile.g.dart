@@ -13,7 +13,10 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) => UserProfile(
       username: json['username'] as String?,
       displayName: json['displayName'] as String?,
       email: json['email'] as String?,
-      gender: json['gender'] as String?,
+      gender: json['gender'] as int?,
+      dateOfBirth: json['dateOfBirth'] == null
+          ? null
+          : DateTime.parse(json['dateOfBirth'] as String),
       profilePaths: (json['profilePaths'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -31,6 +34,7 @@ Map<String, dynamic> _$UserProfileToJson(UserProfile instance) =>
       'displayName': instance.displayName,
       'email': instance.email,
       'gender': instance.gender,
+      'dateOfBirth': instance.dateOfBirth?.toIso8601String(),
       'profilePaths': instance.profilePaths,
       'headerPaths': instance.headerPaths,
     };

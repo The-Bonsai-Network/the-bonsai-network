@@ -18,7 +18,8 @@ class UserProfile with _$UserProfile {
     String? username,
     String? displayName,
     String? email,
-    String? gender,
+    int? gender,
+    DateTime? dateOfBirth,
     List<String>? profilePaths,
     List<String>? headerPaths,
   }) = _UserProfile;

@@ -1,20 +1,22 @@
+import 'package:bonsai_network/application/user_provider_notifier.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bonsai_network/foundation/theme.dart';
 import 'package:bonsai_network/application/login_menu_notifier.dart';
 import 'package:bonsai_network/presentation/pages/common/material_segmented_control.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart' as p;
 
-class ProfileSegmentedControlWidget extends StatefulWidget {
+class ProfileSegmentedControlWidget extends ConsumerStatefulWidget {
   const ProfileSegmentedControlWidget({Key? key}) : super(key: key);
 
   @override
-  State<ProfileSegmentedControlWidget> createState() =>
+  ConsumerState<ProfileSegmentedControlWidget> createState() =>
       _ProfileSegmentedControlWidgetState();
 }
 
 class _ProfileSegmentedControlWidgetState
-    extends State<ProfileSegmentedControlWidget> {
+    extends ConsumerState<ProfileSegmentedControlWidget> {
   Map<int, Widget> _segementedControlChildren(BuildContext context) => {
         0: Container(
           color: Colors.transparent,
@@ -49,6 +51,7 @@ class _ProfileSegmentedControlWidgetState
           setState(
             () {
               model.currentGenderIndex = index as int;
+              ref.read(userProfileProvider.notifier).updateGender(index);
             },
           );
         },
@@ -58,7 +61,7 @@ class _ProfileSegmentedControlWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LoginMenuNotifier>(
+    return p.Consumer<LoginMenuNotifier>(
       builder: (context, model, _) => _buildSegmentedControl(model),
     );
   }

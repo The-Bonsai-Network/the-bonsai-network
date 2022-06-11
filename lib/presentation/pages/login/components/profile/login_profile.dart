@@ -105,7 +105,7 @@ class _LoginProfilePageState extends State<LoginProfilePage> {
                   const ProfileFormDatePickerWidget(),
                 ]),
               ),
-              ProfileFormButtonWidget(formKey: _formKey),
+              ProfileFormButtonWidget(authFormKey: _formKey),
             ],
           ),
         ),
