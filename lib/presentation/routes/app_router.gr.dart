@@ -37,6 +37,18 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LinkedInPage());
     },
+    LoginRegisterFormRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const LoginRegisterFormPage());
+    },
+    LoginForgotPasswordRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const LoginForgotPasswordPage());
+    },
+    LoginEmailRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const LoginEmailPage());
+    },
     CofoundersRoute.name: (routeData) {
       final args = routeData.argsAs<CofoundersRouteArgs>(
           orElse: () => const CofoundersRouteArgs());
@@ -53,6 +65,12 @@ class _$AppRouter extends RootStackRouter {
               path: ':profile', parent: LoginRoute.name),
           RouteConfig(LinkedInRoute.name,
               path: ':linkedin', parent: LoginRoute.name),
+          RouteConfig(LoginRegisterFormRoute.name,
+              path: ':register', parent: LoginRoute.name),
+          RouteConfig(LoginForgotPasswordRoute.name,
+              path: ':forgot-password', parent: LoginRoute.name),
+          RouteConfig(LoginEmailRoute.name,
+              path: ':email', parent: LoginRoute.name),
           RouteConfig('*#redirect',
               path: '*',
               parent: LoginRoute.name,
@@ -112,6 +130,32 @@ class LinkedInRoute extends PageRouteInfo<void> {
   const LinkedInRoute() : super(LinkedInRoute.name, path: ':linkedin');
 
   static const String name = 'LinkedInRoute';
+}
+
+/// generated route for
+/// [LoginRegisterFormPage]
+class LoginRegisterFormRoute extends PageRouteInfo<void> {
+  const LoginRegisterFormRoute()
+      : super(LoginRegisterFormRoute.name, path: ':register');
+
+  static const String name = 'LoginRegisterFormRoute';
+}
+
+/// generated route for
+/// [LoginForgotPasswordPage]
+class LoginForgotPasswordRoute extends PageRouteInfo<void> {
+  const LoginForgotPasswordRoute()
+      : super(LoginForgotPasswordRoute.name, path: ':forgot-password');
+
+  static const String name = 'LoginForgotPasswordRoute';
+}
+
+/// generated route for
+/// [LoginEmailPage]
+class LoginEmailRoute extends PageRouteInfo<void> {
+  const LoginEmailRoute() : super(LoginEmailRoute.name, path: ':email');
+
+  static const String name = 'LoginEmailRoute';
 }
 
 /// generated route for

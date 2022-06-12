@@ -1,16 +1,23 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:bonsai_network/application/login_menu_notifier.dart';
 import 'package:bonsai_network/application/supplementary_sidemenu_notifier.dart';
-import 'package:bonsai_network/application/user_provider_notifier.dart';
+import 'package:bonsai_network/foundation/theme.dart';
 import 'package:bonsai_network/injection.dart';
+import 'package:bonsai_network/presentation/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart' as p;
 
 class ProfileFormButtonWidget extends StatelessWidget {
   final GlobalKey<FormState> authFormKey;
+  final String title;
+  final String route;
 
   const ProfileFormButtonWidget({
     Key? key,
     required this.authFormKey,
+    required this.title,
+    required this.route,
   }) : super(key: key);
 
   @override
@@ -19,6 +26,8 @@ class ProfileFormButtonWidget extends StatelessWidget {
       create: (context) => getIt<SupplementarySidemenuNotifier>(),
       child: _ProfileFormButtonWidget(
         authFormKey: authFormKey,
+        title: title,
+        route: route,
       ),
     );
   }
@@ -26,10 +35,14 @@ class ProfileFormButtonWidget extends StatelessWidget {
 
 class _ProfileFormButtonWidget extends ConsumerStatefulWidget {
   final GlobalKey<FormState> authFormKey;
+  final String title;
+  final String route;
 
   const _ProfileFormButtonWidget({
     Key? key,
     required this.authFormKey,
+    required this.title,
+    required this.route,
   }) : super(key: key);
 
   @override
@@ -38,21 +51,51 @@ class _ProfileFormButtonWidget extends ConsumerStatefulWidget {
 
 class _ProfileFormButtonState extends ConsumerState<_ProfileFormButtonWidget> {
   Widget _submitFormButton(BuildContext context, WidgetRef ref) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: ElevatedButton(
-          onPressed: () {
-            if (widget.authFormKey.currentState?.validate() ?? false) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Welcome to the Bonsai Network!')),
-              );
+    return p.Consumer<LoginMenuNotifier>(
+      builder: (context, model, _) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        child: SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                final validated =
+                    widget.authFormKey.currentState?.validate() ?? false;
 
-              ref.read(userProfileProvider.notifier).signInUser();
-            }
-          },
-          child: const Text('Join our network'),
+                if (widget.route == DashboardRoute.name) {
+                  if (!validated) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: ThemeColor.primaryGreen.color,
+                        content: const Text(
+                          'You have some missing required fields!',
+                        ),
+                      ),
+                    );
+
+                    return;
+                  }
+
+                  AutoRouter.of(context).replaceAll([const DashboardRoute()]);
+                } else if (widget.title.compareTo('Forgot Password') == 0 &&
+                    widget.route == LoginRegisterFormRoute.name) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: ThemeColor.primaryGreen.color,
+                      content: const Text(
+                        'If you have an account you\'ve got mail',
+                      ),
+                    ),
+                  );
+
+                  model.currentRoute = widget.route;
+                } else {
+                  model.currentRoute = widget.route;
+                }
+              });
+            },
+            child: Text(widget.title),
+          ),
         ),
       ),
     );

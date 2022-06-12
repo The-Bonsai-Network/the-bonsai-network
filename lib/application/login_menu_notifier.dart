@@ -5,7 +5,7 @@ import 'package:bonsai_network/presentation/routes/app_router.dart';
 
 @injectable
 class LoginMenuNotifier extends ChangeNotifier {
-  String _currentRoute = LoginProfileRoute.name;
+  String _currentRoute = LoginRegisterFormRoute.name;
   int _currentGenderIndex = 0;
 
   String get currentRoute => _currentRoute;

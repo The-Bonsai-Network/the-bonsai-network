@@ -5,10 +5,44 @@ import 'package:provider/provider.dart';
 import 'package:bonsai_network/foundation/theme.dart';
 import 'package:bonsai_network/presentation/routes/app_router.dart';
 
-class AppWidget extends StatelessWidget {
+class AppWidget extends StatefulWidget {
+  const AppWidget({Key? key}) : super(key: key);
+
+  @override
+  State<AppWidget> createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends State<AppWidget> {
   final _appRouter = AppRouter();
 
-  AppWidget({Key? key}) : super(key: key);
+  @override
+  void didChangeDependencies() {
+    precacheImage(
+      const AssetImage(
+        'assets/images/bonsai.png',
+      ),
+      context,
+    );
+    precacheImage(
+      const AssetImage(
+        'assets/images/background/background1.jpg',
+      ),
+      context,
+    );
+    precacheImage(
+      const AssetImage(
+        'assets/images/background/background2.jpeg',
+      ),
+      context,
+    );
+    precacheImage(
+      const AssetImage(
+        'assets/images/background/background3.jpeg',
+      ),
+      context,
+    );
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {

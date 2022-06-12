@@ -21,41 +21,41 @@ class _ProfileSegmentedControlWidgetState
         0: Container(
           color: Colors.transparent,
           width: MediaQuery.of(context).size.width / 3,
+          height: 18.0,
           child: const Center(child: Text('Male')),
         ),
         1: Container(
           color: Colors.transparent,
           width: MediaQuery.of(context).size.width / 3,
+          height: 18.0,
           child: const Center(child: Text('Female')),
         ),
         2: Container(
           color: Colors.transparent,
           width: MediaQuery.of(context).size.width / 3,
+          height: 18.0,
           child: const Center(child: Text('Other')),
         ),
       };
 
   Widget _buildSegmentedControl(LoginMenuNotifier model) {
-    return FittedBox(
-      fit: BoxFit.fill,
-      child: MaterialSegmentedControl(
-        children: _segementedControlChildren(context),
-        selectionIndex: model.currentGenderIndex,
-        borderColor: Colors.transparent,
-        selectedColor: ThemeColor.primaryGreen.color,
-        unselectedColor: ThemeColor.secondaryBackground.color,
-        borderRadius: 6.0,
-        verticalOffset: 8.0,
-        horizontalPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-        onSegmentChosen: (index) {
-          setState(
-            () {
-              model.currentGenderIndex = index as int;
-              ref.read(userProfileProvider.notifier).updateGender(index);
-            },
-          );
-        },
-      ),
+    return MaterialSegmentedControl(
+      children: _segementedControlChildren(context),
+      selectionIndex: model.currentGenderIndex,
+      borderColor: Colors.transparent,
+      selectedColor: ThemeColor.primaryGreen.color,
+      unselectedColor: ThemeColor.secondaryBackground.color,
+      borderRadius: 6.0,
+      verticalOffset: 8.0,
+      horizontalPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+      onSegmentChosen: (index) {
+        setState(
+          () {
+            model.currentGenderIndex = index as int;
+            ref.read(userProfileProvider.notifier).updateGender(index);
+          },
+        );
+      },
     );
   }
 

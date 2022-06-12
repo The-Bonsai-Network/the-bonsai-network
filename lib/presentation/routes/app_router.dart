@@ -1,8 +1,11 @@
+import 'package:bonsai_network/presentation/pages/login/components/profile/login_register_form.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 
 import 'package:bonsai_network/presentation/pages/login/components/profile/login_profile.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
+import 'package:bonsai_network/presentation/pages/login/components/profile/login_email.dart';
+import 'package:bonsai_network/presentation/pages/login/components/profile/login_forgot_password.dart';
 import 'package:bonsai_network/presentation/pages/login/login_page.dart';
 import 'package:bonsai_network/presentation/pages/landing/landing_page.dart';
 import 'package:bonsai_network/presentation/pages/dashboard/dashboard_page.dart';
@@ -20,6 +23,9 @@ part 'app_router.gr.dart';
       children: [
         AutoRoute(path: ':profile', page: LoginProfilePage),
         AutoRoute(path: ':linkedin', page: LinkedInPage),
+        AutoRoute(path: ':register', page: LoginRegisterFormPage),
+        AutoRoute(path: ':forgot-password', page: LoginForgotPasswordPage),
+        AutoRoute(path: ':email', page: LoginEmailPage),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),

@@ -25,7 +25,10 @@ class ProfileFormHeaderWidget extends StatelessWidget {
               child: Text(
                 header ?? '',
                 textAlign: TextAlign.left,
-                style: const TextStyle(color: Colors.black54),
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
