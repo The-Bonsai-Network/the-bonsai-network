@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bonsai_network/injection.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import 'package:bonsai_network/application/dashboard_notifier.dart';
@@ -16,27 +17,6 @@ class DashboardPageMobile extends StatefulWidget {
 }
 
 class _DashboardPageMobileState extends State<DashboardPageMobile> {
-  final String homeSvg = 'assets/images/home.svg';
-
-  final String hamburgerSvg = 'assets/images/hamburger.svg';
-
-  // int _selectedIndex = 0;
-
-  // bool _showBottomSheet = false;
-
-  // void _onItemTapped(
-  //     BuildContext context, int index, SupplementarySidemenuNotifier model) {
-  //   setState(() {
-  //     _selectedIndex = index;
-
-  //     _showBottomSheet = !_showBottomSheet && _selectedIndex == 1;
-
-  //     if (_selectedIndex == 0) {
-  //       model.currentRoute = CofoundersRoute.name;
-  //     }
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Consumer2<DashboardNotifier, SupplementarySidemenuNotifier>(

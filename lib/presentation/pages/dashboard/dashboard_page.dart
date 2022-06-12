@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:bonsai_network/injection.dart';
+import 'package:bonsai_network/presentation/routes/app_router.dart';
 import 'package:bonsai_network/persistence/database.dart';
 import 'package:bonsai_network/application/dashboard_notifier.dart';
 import 'package:bonsai_network/presentation/pages/dashboard/mobile/dashboard_mobile.dart';
@@ -38,6 +41,19 @@ class _DashboardPageWidget extends StatefulWidget {
 }
 
 class _DashboardPageStateState extends State<_DashboardPageWidget> {
+  final auth = getIt<FirebaseAuth>();
+
+  @override
+  void initState() {
+    auth.authStateChanges().listen((User? user) {
+      if (user == null) {
+        context.router.replaceAll([const LoginRoute()]);
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<DashboardNotifier>(

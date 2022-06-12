@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:bonsai_network/presentation/pages/login/components/oauth/google_oauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -58,6 +59,23 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
     );
   }
 
+  Future<void> _buildOAuthModal(Widget page) {
+    return showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      isScrollControlled: true,
+      isDismissible: true,
+      builder: (BuildContext context) {
+        return ChangeNotifierProvider(
+          create: (context) => getIt<LoginMenuNotifier>(),
+          child: page,
+        );
+      },
+    );
+  }
+
   Widget _buildSplashOAuthButton(String svg, String? routeName) {
     return Consumer<LoginMenuNotifier>(
       builder: (context, model, _) => AutoRouter(
@@ -81,6 +99,10 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
                   _buildLinkedInModal();
                   break;
 
+                case GoogleRoute.name:
+                  _buildOAuthModal(const GooglePage());
+                  break;
+
                 default:
                   break;
               }
@@ -102,7 +124,7 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _buildSplashOAuthButton(
-                  'assets/images/oauth/google.svg', LinkedInRoute.name),
+                  'assets/images/oauth/google.svg', GoogleRoute.name),
               _buildSplashOAuthButton(
                   'assets/images/oauth/facebook.svg', LinkedInRoute.name),
               _buildSplashOAuthButton(

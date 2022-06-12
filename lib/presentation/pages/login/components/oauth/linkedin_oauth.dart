@@ -62,7 +62,7 @@ class _LinkedInPageState extends State<_LinkedInPage> {
       builder: (context, model, _) => Stack(
         children: [
           LinkedInUserWidget(
-            destroySession: model.logoutUser,
+            destroySession: auth.currentUser == null,
             redirectUrl: dotenv.env['LINKEDIN_REDIRECT_URI'],
             clientId: dotenv.env['LINKEDIN_CLIENT_ID'],
             clientSecret: dotenv.env['LINKEDIN_CLIENT_SECRET'],
@@ -131,7 +131,7 @@ class _LinkedInPageState extends State<_LinkedInPage> {
                 );
 
                 await secureStorage.write(
-                  key: 'bonsai-linkedin-token',
+                  key: 'bonsai-token',
                   value: linkedInUser.user.token.accessToken ?? '',
                 );
 
@@ -161,7 +161,6 @@ class _LinkedInPageState extends State<_LinkedInPage> {
               }
 
               setState(() {
-                model.logoutUser = false;
                 model.loading = false;
                 AutoRouter.of(context).replace(const DashboardRoute());
               });

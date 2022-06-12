@@ -99,6 +99,7 @@ dependencies:
   device_info_plus: ^3.2.3
   image: ^3.2.0
   flutter_dotenv: ^5.0.2
+  jwt_decoder: ^2.0.1
 
   window_size:
     git:

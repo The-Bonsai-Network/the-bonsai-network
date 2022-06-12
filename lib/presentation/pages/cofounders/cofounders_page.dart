@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:bonsai_network/injection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:bonsai_network/presentation/routes/app_router.dart';
+import 'package:bonsai_network/injection.dart';
 import 'package:bonsai_network/application/supplementary_sidemenu_notifier.dart';
 
 class CofoundersPage extends StatelessWidget {
@@ -20,7 +18,6 @@ class CofoundersPage extends StatelessWidget {
           child: const Text('Logout'),
           onPressed: () {
             auth.signOut();
-            context.router.replaceAll([const LoginRoute()]);
           },
         ),
       ),
