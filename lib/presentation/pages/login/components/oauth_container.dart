@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bonsai_network/presentation/pages/login/components/oauth/google_oauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'package:bonsai_network/injection.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth/apple_oauth.dart';
 import 'package:bonsai_network/presentation/pages/login/components/oauth/linkedin_oauth.dart';
+import 'package:bonsai_network/presentation/pages/login/components/oauth/facebook_oauth.dart';
+import 'package:bonsai_network/presentation/pages/login/components/oauth/google_oauth.dart';
 import 'package:bonsai_network/presentation/routes/app_router.dart';
 import 'package:bonsai_network/application/login_menu_notifier.dart';
 import 'package:bonsai_network/foundation/theme.dart';
@@ -103,6 +104,10 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
                   _buildOAuthModal(const GooglePage());
                   break;
 
+                case FacebookRoute.name:
+                  _buildOAuthModal(const FacebookPage());
+                  break;
+
                 default:
                   break;
               }
@@ -126,7 +131,7 @@ class _OAuthContainerWidgetState extends State<OAuthContainerWidget> {
               _buildSplashOAuthButton(
                   'assets/images/oauth/google.svg', GoogleRoute.name),
               _buildSplashOAuthButton(
-                  'assets/images/oauth/facebook.svg', LinkedInRoute.name),
+                  'assets/images/oauth/facebook.svg', FacebookRoute.name),
               _buildSplashOAuthButton(
                   'assets/images/oauth/linkedin.svg', LinkedInRoute.name),
             ],

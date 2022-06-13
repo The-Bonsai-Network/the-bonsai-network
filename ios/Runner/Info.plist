@@ -55,6 +55,25 @@
                 <string>com.googleusercontent.apps.363240734612-hp9um7oh7vn1osq7mfqrcsaeimpj6069</string>
             </array>
         </dict>
+		<dict>
+		<key>CFBundleURLSchemes</key>
+			<array>
+			<string>fb1453761708358935</string>
+			</array>
+		</dict>
     </array>
+	<key>FacebookAppID</key>
+	<string>1453761708358935</string>
+	<key>FacebookClientToken</key>
+	<string>f3ddf844ef7948fcdb28f467e0342329</string>
+	<key>FacebookDisplayName</key>
+	<string>The Bonsai Network</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

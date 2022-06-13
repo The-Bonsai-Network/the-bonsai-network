@@ -87,6 +87,7 @@ dependencies:
   linkedin_login: ^2.2.1
   google_sign_in: ^5.3.3
   sign_in_with_apple: ^4.0.0
+  flutter_facebook_auth: ^4.3.4+2
 
   # For URL Management
   url_strategy: ^0.2.0
@@ -99,7 +100,6 @@ dependencies:
   device_info_plus: ^3.2.3
   image: ^3.2.0
   flutter_dotenv: ^5.0.2
-  jwt_decoder: ^2.0.1
 
   window_size:
     git:

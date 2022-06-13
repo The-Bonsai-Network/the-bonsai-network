@@ -17,6 +17,9 @@ class OAuthFailureDialog extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
+          color: MediaQuery.of(context).platformBrightness == Brightness.light
+              ? Colors.white
+              : Colors.black,
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Container(

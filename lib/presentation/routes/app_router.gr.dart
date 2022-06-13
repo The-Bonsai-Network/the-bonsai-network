@@ -41,6 +41,10 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const GooglePage());
     },
+    FacebookRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const FacebookPage());
+    },
     LoginRegisterFormRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoginRegisterFormPage());
@@ -71,6 +75,8 @@ class _$AppRouter extends RootStackRouter {
               path: ':linkedin', parent: LoginRoute.name),
           RouteConfig(GoogleRoute.name,
               path: ':google', parent: LoginRoute.name),
+          RouteConfig(FacebookRoute.name,
+              path: ':facebook', parent: LoginRoute.name),
           RouteConfig(LoginRegisterFormRoute.name,
               path: ':register', parent: LoginRoute.name),
           RouteConfig(LoginForgotPasswordRoute.name,
@@ -144,6 +150,14 @@ class GoogleRoute extends PageRouteInfo<void> {
   const GoogleRoute() : super(GoogleRoute.name, path: ':google');
 
   static const String name = 'GoogleRoute';
+}
+
+/// generated route for
+/// [FacebookPage]
+class FacebookRoute extends PageRouteInfo<void> {
+  const FacebookRoute() : super(FacebookRoute.name, path: ':facebook');
+
+  static const String name = 'FacebookRoute';
 }
 
 /// generated route for
