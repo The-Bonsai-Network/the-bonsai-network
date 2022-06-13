@@ -102,26 +102,6 @@ class _LinkedInPageState extends State<_LinkedInPage> {
                 ],
               );
 
-              final firebaseAuthUser = await auth
-                  .signInWithEmailAndPassword(
-                email: user?.email ?? '',
-                password: linkedInUser.user.userId ?? '',
-              )
-                  .onError(
-                (e, _) {
-                  showDialog(
-                    context: context,
-                    builder: (context) => const OAuthFailureDialog(
-                      svgName: 'assets/images/oauth/linkedin.svg',
-                    ),
-                  );
-
-                  AutoRouter.of(context).pop();
-
-                  throw e ?? {};
-                },
-              );
-
               final firestoreUser = user?.toFirestore() ?? {};
 
               if (firestoreUser.isNotEmpty) {
@@ -148,11 +128,55 @@ class _LinkedInPageState extends State<_LinkedInPage> {
                     .get();
 
                 if (existingUser.docs.isNotEmpty) {
+                  final firebaseAuthUser = await auth
+                      .signInWithEmailAndPassword(
+                    email: user?.email ?? '',
+                    password: linkedInUser.user.userId ?? '',
+                  )
+                      .onError(
+                    (e, _) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => const OAuthFailureDialog(
+                          svgName: 'assets/images/oauth/linkedin.svg',
+                        ),
+                      );
+
+                      setState(() {
+                        model.loading = false;
+                      });
+
+                      throw e ?? {};
+                    },
+                  );
+
                   await db
                       .collection('users')
                       .doc(firebaseAuthUser.user?.uid ?? '')
                       .update(firestoreUser);
                 } else {
+                  final firebaseAuthUser = await auth
+                      .createUserWithEmailAndPassword(
+                    email: user?.email ?? '',
+                    password: linkedInUser.user.userId ?? '',
+                  )
+                      .onError(
+                    (e, _) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => const OAuthFailureDialog(
+                          svgName: 'assets/images/oauth/linkedin.svg',
+                        ),
+                      );
+
+                      setState(() {
+                        model.loading = false;
+                      });
+
+                      throw e ?? {};
+                    },
+                  );
+
                   await db
                       .collection("users")
                       .doc(firebaseAuthUser.user?.uid ?? '')

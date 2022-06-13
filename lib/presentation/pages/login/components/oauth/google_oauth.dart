@@ -104,6 +104,20 @@ class _GooglePageState extends ConsumerState<_GooglePage> {
       idToken: googleAuth?.idToken,
     );
 
+    final providers =
+        await auth.fetchSignInMethodsForEmail(googleUser?.email ?? '');
+
+    if (providers.isNotEmpty) {
+      showDialog(
+        context: context,
+        builder: (context) => const OAuthFailureDialog(
+          svgName: 'assets/images/oauth/google.svg',
+        ),
+      );
+
+      return;
+    }
+
     final firebaseAuthUser =
         await auth.signInWithCredential(credential).onError(
       (e, _) {
@@ -113,8 +127,6 @@ class _GooglePageState extends ConsumerState<_GooglePage> {
             svgName: 'assets/images/oauth/google.svg',
           ),
         );
-
-        AutoRouter.of(context).popUntilRoot();
 
         throw e ?? {};
       },

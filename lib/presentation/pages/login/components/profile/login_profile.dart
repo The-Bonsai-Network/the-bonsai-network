@@ -42,6 +42,12 @@ class _LoginProfilePageState extends State<LoginProfilePage>
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Animation<double> curve = CurvedAnimation(
       parent: controller,

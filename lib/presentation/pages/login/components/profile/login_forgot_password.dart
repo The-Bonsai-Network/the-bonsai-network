@@ -40,6 +40,12 @@ class _LoginForgotPasswordPageState extends State<LoginForgotPasswordPage>
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Animation<double> curve = CurvedAnimation(
       parent: controller,

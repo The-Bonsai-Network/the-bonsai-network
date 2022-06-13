@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:bonsai_network/presentation/pages/dashboard/dashboard_page.dart';
 import 'package:bonsai_network/presentation/pages/login/components/profile/login_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as p;
