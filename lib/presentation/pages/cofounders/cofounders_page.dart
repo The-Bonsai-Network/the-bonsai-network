@@ -5,9 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:bonsai_network/injection.dart';
 import 'package:bonsai_network/application/supplementary_sidemenu_notifier.dart';
 
-class CofoundersPage extends StatelessWidget {
-  CofoundersPage({Key? key}) : super(key: key);
+class CofoundersPage extends StatefulWidget {
+  const CofoundersPage({Key? key}) : super(key: key);
 
+  @override
+  State<CofoundersPage> createState() => _CofoundersPageState();
+}
+
+class _CofoundersPageState extends State<CofoundersPage> {
   final auth = getIt<FirebaseAuth>();
 
   @override
@@ -17,7 +22,9 @@ class CofoundersPage extends StatelessWidget {
         child: ElevatedButton(
           child: const Text('Logout'),
           onPressed: () {
-            auth.signOut();
+            setState(() {
+              auth.signOut();
+            });
           },
         ),
       ),
