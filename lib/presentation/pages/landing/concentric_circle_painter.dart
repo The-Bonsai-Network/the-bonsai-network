@@ -5,8 +5,9 @@ import 'package:bonsai_network/foundation/theme.dart';
 
 class ConcentricCirclesPainter extends CustomPainter {
   final ui.Image image;
+  final BuildContext context;
 
-  ConcentricCirclesPainter(this.image) : super();
+  ConcentricCirclesPainter(this.image, this.context) : super();
 
   List<Paint> get _painters => [
         Paint()
@@ -33,7 +34,10 @@ class ConcentricCirclesPainter extends CustomPainter {
           ..style = PaintingStyle.stroke
           ..strokeWidth = 30.0,
         Paint()
-          ..color = Colors.white
+          ..color =
+              MediaQuery.of(context).platformBrightness == ui.Brightness.light
+                  ? Colors.white
+                  : Colors.black
           ..style = PaintingStyle.stroke
           ..strokeWidth = 25.0,
       ];

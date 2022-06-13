@@ -13,11 +13,15 @@ class ProfileTextFormFieldWidget extends StatelessWidget {
   }) : super(key: key);
 
   Widget _buildTextFormField(
+    BuildContext context,
     String placeholder,
     String validatorText,
     BorderRadius borderRadius,
   ) {
     return Card(
+      color: MediaQuery.of(context).platformBrightness == Brightness.light
+          ? Colors.white
+          : Colors.black,
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
@@ -30,8 +34,11 @@ class ProfileTextFormFieldWidget extends StatelessWidget {
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             labelText: placeholder,
-            labelStyle: const TextStyle(
-              color: Colors.grey,
+            labelStyle: TextStyle(
+              color:
+                  MediaQuery.of(context).platformBrightness == Brightness.light
+                      ? Colors.grey
+                      : Colors.white,
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
           ),
@@ -48,6 +55,7 @@ class ProfileTextFormFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _buildTextFormField(
+        context,
         placeholder,
         validatorText,
         borderRadius,

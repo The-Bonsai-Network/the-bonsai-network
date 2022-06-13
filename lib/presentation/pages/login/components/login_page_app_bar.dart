@@ -14,6 +14,11 @@ class LoginPageAppBarWidget extends StatelessWidget {
           ..abs()
           ..clamp(0.0, 1.0);
 
+        double platformBrightness =
+            MediaQuery.of(context).platformBrightness.index.toDouble()
+              ..abs()
+              ..clamp(0.0, 1.0);
+
         return SliverAppBar(
           expandedHeight: 120.0,
           stretch: true,
@@ -43,7 +48,9 @@ class LoginPageAppBarWidget extends StatelessWidget {
             ),
           ),
           backgroundColor: scrollOffset >= 0.0
-              ? Colors.grey.withOpacity(scrollOffset.clamp(0.0, 1.0))
+              ? platformBrightness == 0
+                  ? Colors.black.withOpacity(scrollOffset.clamp(0.0, 1.0))
+                  : Colors.white.withOpacity(scrollOffset.clamp(0.0, 1.0))
               : Colors.transparent,
           flexibleSpace: OrientationBuilder(
             builder: (context, orientation) {

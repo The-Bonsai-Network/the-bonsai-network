@@ -98,9 +98,20 @@ class _GooglePageState extends ConsumerState<_GooglePage> {
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
 
+    if (googleAuth == null) {
+      showDialog(
+        context: context,
+        builder: (context) => const OAuthFailureDialog(
+          svgName: 'assets/images/oauth/google.svg',
+        ),
+      );
+
+      return;
+    }
+
     final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
 
     final providers =

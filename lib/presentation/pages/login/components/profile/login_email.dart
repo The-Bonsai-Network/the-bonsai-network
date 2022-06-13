@@ -112,7 +112,10 @@ class _LoginEmailPageState extends State<LoginEmailPage>
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
-                          color: ThemeColor.primaryGreen.color,
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light
+                              ? ThemeColor.primaryGreen.color
+                              : Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -128,7 +131,10 @@ class _LoginEmailPageState extends State<LoginEmailPage>
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: ThemeColor.primaryGreen.color,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? ThemeColor.primaryGreen.color
+                          : Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

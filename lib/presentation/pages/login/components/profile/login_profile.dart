@@ -116,9 +116,12 @@ class _LoginProfilePageState extends State<LoginProfilePage>
                 const ProfileFormHeaderWidget(header: 'GENERAL INFORMATION'),
                 Container(
                   padding: const EdgeInsets.all(12.0),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(
+                  decoration: BoxDecoration(
+                    color: MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? Colors.white
+                        : Colors.black,
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(12),
                     ),
                   ),
@@ -154,7 +157,10 @@ class _LoginProfilePageState extends State<LoginProfilePage>
                       child: Text(
                         'Sign In',
                         style: TextStyle(
-                          color: ThemeColor.primaryGreen.color,
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light
+                              ? ThemeColor.primaryGreen.color
+                              : Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -170,7 +176,10 @@ class _LoginProfilePageState extends State<LoginProfilePage>
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: ThemeColor.primaryGreen.color,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? ThemeColor.primaryGreen.color
+                          : Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

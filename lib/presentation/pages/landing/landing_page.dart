@@ -83,7 +83,7 @@ class LandingPage extends StatelessWidget {
                         return CustomPaint(
                           size: const Size(10, 10),
                           foregroundPainter:
-                              ConcentricCirclesPainter(snapshot.data!),
+                              ConcentricCirclesPainter(snapshot.data!, context),
                         );
                       } else {
                         return Container();
